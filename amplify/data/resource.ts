@@ -6,26 +6,60 @@ adding a new "isDone" field as a boolean. The authorization rule below
 specifies that any user authenticated via an API key can "create", "read",
 "update", and "delete" any "Todo" records.
 =========================================================================*/
+
+// Define your data model for the medical app
+
+
+// Define your data model for the medical app
 const schema = a.schema({
-  Todo: a
-    .model({
-      content: a.string(),
-    })
-    .authorization((allow) => [allow.publicApiKey()]),
+  Patient: a.model({
+    name: a.string(),
+    age: a.integer(),
+    medicalHistory: a.string(),
+  }).authorization(allow => [
+    allow.group("doctors"),
+    allow.owner(),
+  ])
 });
 
-export type Schema = ClientSchema<typeof schema>;
-
+// Export the data resource to be deployed
 export const data = defineData({
   schema,
   authorizationModes: {
-    defaultAuthorizationMode: "apiKey",
-    // API Key is used for a.allow.public() rules
+    defaultAuthorizationMode: 'apiKey',
     apiKeyAuthorizationMode: {
-      expiresInDays: 30,
-    },
-  },
+      expiresInDays: 30
+    }
+  }
 });
+
+export type Schema = typeof schema;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*== STEP 2 ===============================================================
 Go to your frontend source code. From your client-side code, generate a
