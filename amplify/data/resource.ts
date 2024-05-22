@@ -1,3 +1,4 @@
+
 import { type ClientSchema, a, defineData } from "@aws-amplify/backend";
 
 /*== STEP 1 ===============================================================
@@ -6,60 +7,32 @@ adding a new "isDone" field as a boolean. The authorization rule below
 specifies that any user authenticated via an API key can "create", "read",
 "update", and "delete" any "Todo" records.
 =========================================================================*/
-
-// Define your data model for the medical app
-
-
-// Define your data model for the medical app
 const schema = a.schema({
-  Patient: a.model({
-    name: a.string(),
-    age: a.integer(),
-    medicalHistory: a.string(),
-  }).authorization(allow => [
-    allow.group("doctors"),
-    allow.owner(),
-  ])
+  Event: a.model({
+    title: a.string(),
+    description: a.string(),
+      city: a.string(),
+      zipCode: a.integer(),
+      state: a.string(),
+      email: a.email(),
+      phone: a.integer(),
+    // Add any other relevant event fields
+  }).authorization((allow) => [allow.publicApiKey()]),
 });
 
-// Export the data resource to be deployed
+
+export type Schema = ClientSchema<typeof schema>;
+
 export const data = defineData({
   schema,
   authorizationModes: {
-    defaultAuthorizationMode: 'apiKey',
+    defaultAuthorizationMode: "apiKey",
+    // API Key is used for a.allow.public() rules
     apiKeyAuthorizationMode: {
-      expiresInDays: 30
-    }
-  }
+      expiresInDays: 30,
+    },
+  },
 });
-
-export type Schema = typeof schema;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /*== STEP 2 ===============================================================
 Go to your frontend source code. From your client-side code, generate a
