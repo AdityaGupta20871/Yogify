@@ -3,8 +3,14 @@ import '@aws-amplify/ui-react/styles.css'
 import { Flex, Icon, Text, Button, } from '@aws-amplify/ui-react';
 import { Link } from 'react-router-dom';
 import { signOut } from 'aws-amplify/auth';
-
 const NavbarHeader = () => {
+  const handleSignOut = async () => {
+    try {
+      await signOut();
+    } catch (error) {
+      console.error('Error signing out: ', error);
+    }
+  };
   return (
     <>
     <Flex
@@ -118,16 +124,16 @@ const NavbarHeader = () => {
     >
       <Button
         shrink="0"
-        size="default"
+        size="small"
         isDisabled={false}
         variation="primary"
-        onClick={signOut}
+        onClick={handleSignOut}
       >
         SignOut
       </Button>
       <Button
         shrink="0"
-        size="default"
+        size="small"
         isDisabled={false}
         variation='link'
       >

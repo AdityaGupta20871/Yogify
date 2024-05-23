@@ -1,17 +1,12 @@
-
-import { useEffect, useState } from "react";
-import type { Schema } from "../amplify/data/resource";
-import { generateClient } from "aws-amplify/data";
 import { Authenticator } from '@aws-amplify/ui-react'
 import '@aws-amplify/ui-react/styles.css'
 import { Route,Routes,BrowserRouter as Router } from 'react-router-dom'
 import HomePage from "./components/HomePage";
 import EventFormPage from "./components/EventFormPage";
 import EventPage from "./components/EventPage";
-import NavbarHeader from "./components/NavbarHeader";
-const client = generateClient<Schema>();
+import NavbarHeader from "./components/NavbarHeader"
 
-function App() {
+const App=()=> {
   // const [todos, setTodos] = useState<Array<Schema["Todo"]["type"]>>([]);
 
   // useEffect(() => {
@@ -26,10 +21,10 @@ function App() {
 
   return (
     <Authenticator>
-    {({ signOut, user }) => (
+    {() => (
       <>
     <Router>
-    <NavbarHeader/>
+    <NavbarHeader />
         <Routes>
         <Route path="/form" element={<EventFormPage />} />
         <Route path="/workshop" element={<EventPage />} />
@@ -50,7 +45,6 @@ function App() {
           Review next step of this tutorial.
         </a>
       </div> */}
-      <button onClick={signOut}>Sign out</button>
       </>
           )}
           </Authenticator>

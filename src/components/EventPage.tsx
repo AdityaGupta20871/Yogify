@@ -1,77 +1,55 @@
-import React from 'react'
-import '@aws-amplify/ui-react/styles.css';
+import { useState, useEffect } from 'react';
+import { Flex } from '@aws-amplify/ui-react';
+import { generateClient } from 'aws-amplify/data';
+import type { Schema } from '../../amplify/data/resource';
 import EventCard from './EventCard';
-import { Flex, Heading, Text, Button } from '@aws-amplify/ui-react';
-import { useNavigate } from 'react-router-dom';
+import { Event } from '../types/Event';  // Import the Event type
+
 const EventPage = () => {
-  const navigate = useNavigate();
-  const handleClick = () =>{
-    navigate('/form')
-  }
+  const [events, setEvents] = useState<Event[]>([]);
+
+  useEffect(() => {
+    const fetchEvents = async () => {
+      try {
+        const client = generateClient<Schema>();
+        const { data: eventData } = await client.models.Event.list();
+        // Ensure the data matches the Event interface
+        const formattedEventData = eventData.map((event: any) => ({
+          id: event.id,
+          title: event.title ?? null,
+          description: event.description ?? null,
+          city: event.city ?? null,
+          zipCode: event.zipCode ?? null,
+          state: event.state ?? null,
+          email: event.email ?? null,
+          phone: event.phone ?? null,
+          date: event.date ?? null,
+          time: event.time ?? null,
+          venue: event.venue ?? null,
+        }));
+        setEvents(formattedEventData);
+      } catch (error) {
+        console.error('Error fetching events:', error);
+      }
+    };
+    fetchEvents();
+  }, []);
+
   return (
-    <>
-          <Flex
-    direction="row"
-    width="100vw"
-    justifyContent="space-between"
-    alignItems="center"
-    position="relative"
-    padding="48px 48px 48px 48px"
-    backgroundColor="rgba(250,250,250,1)"
-  >
     <Flex
-      width="50%"
-      height="106px"
-      shrink="0"
+      gap="48px"
+      direction="column"
+      width="100%"
+      justifyContent="flex-start"
+      alignItems="flex-start"
       position="relative"
+      padding="48px 48px 48px 48px"
     >
-      <Heading
-        position="absolute"
-        top="0px"
-        left="0px"
-        level="1"
-      >
-        Workshops
-      </Heading>
-      <Text
-        fontFamily="Inter"
-        fontSize="24px"
-        fontWeight="400"
-        color="rgba(92,102,112,1)"
-        lineHeight="36px"
-        textAlign="left"
-        display="block"
-        position="absolute"
-        top="70px"
-        left="0px"
-        whiteSpace="pre-wrap"
-      >
-        Join us for interactive workshop
-      </Text>
+      {events.map((event) => (
+        <EventCard key={event.id} event={event} />
+      ))}
     </Flex>
-    <Button onClick={handleClick}
-    >
-      Create Workshop
-    </Button>
-  </Flex>  
-  <Flex
-    gap="48px"
-    direction="column"
-    width="100%"
-    justifyContent="flex-start"
-    alignItems="flex-start"
-    position="relative"
-    padding="48px 48px 48px 48px"
-  >
-    <EventCard />
-    <EventCard />
-    <EventCard />
-  </Flex>
-    </>
-  )
-}
+  );
+};
 
-export default EventPage
-
-
-
+export default EventPage;

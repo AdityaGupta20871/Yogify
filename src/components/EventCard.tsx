@@ -1,23 +1,14 @@
 import React from 'react'
 import { Flex, Text, Image, Badge, Icon, Divider, Button } from '@aws-amplify/ui-react';
+import { Event } from '../types/Event';  // Import the Event type
 
-
-interface Event {
-  id: string;
-  title: string;
-  description: string;
-  city: string;
-  zipCode: number;
-  state: string;
-  email: string;
-  phone: number;
-  date: string; // Assuming date is part of the schema
-  time: string; // Assuming time is part of the schema
-  venue: string; // Assuming venue is part of the schema
+interface EventCardProps {
+  event: Event;
 }
 
 
-const EventCard: React.FC<{ event: Event }> = ({ event }) => {
+const EventCard: React.FC<EventCardProps> = ({ event }) => {
+  console.log(event)
   return (
     <>
     <Flex
@@ -39,6 +30,7 @@ const EventCard: React.FC<{ event: Event }> = ({ event }) => {
         position="relative"
       >
         <Image
+        src='../assets/image.jpg'
           width="30%"
           display="block"
           shrink="0"
@@ -74,7 +66,7 @@ const EventCard: React.FC<{ event: Event }> = ({ event }) => {
             position="relative"
             whiteSpace="pre-wrap"
           >
-            {event.title}
+            {event && event.title}
           </Text>
           <Flex
             gap="16px"
@@ -87,28 +79,27 @@ const EventCard: React.FC<{ event: Event }> = ({ event }) => {
             <Badge
               shrink="0"
               size="small"
-              variation="default"
+              variation="info"
             >
               June 15, 2024
             </Badge>
             <Badge
               shrink="0"
               size="small"
-              variation="default"
+              variation="info"
             >
               Delhi
             </Badge>
             <Badge
               shrink="0"
+              variation="info"
               size="small"
-              variation="default"
             >
               5:00 PM
             </Badge>
             <Badge
-              shrink="0"
               size="small"
-              variation="default"
+              variation="info"
             >
               Cult Fitness
             </Badge>
@@ -161,7 +152,7 @@ const EventCard: React.FC<{ event: Event }> = ({ event }) => {
                 width="0px"
                 height="4px"
                 viewBox={{"minX":0,"minY":0,"width":1,"height":4}}
-                paths={[{"d":"M 0 0 L 0 4","fillRule":"none"},{"d":"M1 0 C1 -0.552285 0.552285 -1 0 -1 C-0.552285 -1 -1 -0.552285 -1 0 L1 0 Z M-1 4 C-1 4.55228 -0.552285 5 0 5 C0.552285 5 1 4.55228 1 4 L-1 4 Z M-1 0 L-1 4 L1 4 L1 0 L-1 0 Z","stroke":"rgba(0,0,0,1)","fillRule":"nonzero","strokeLinejoin":"round","strokeWidth":2}]}
+                paths={[{"d":"M 0 0 L 0 4"},{"d":"M1 0 C1 -0.552285 0.552285 -1 0 -1 C-0.552285 -1 -1 -0.552285 -1 0 L1 0 Z M-1 4 C-1 4.55228 -0.552285 5 0 5 C0.552285 5 1 4.55228 1 4 L-1 4 Z M-1 0 L-1 4 L1 4 L1 0 L-1 0 Z","stroke":"rgba(0,0,0,1)","fillRule":"nonzero","strokeLinejoin":"round","strokeWidth":2}]}
                 display="block"
                 position="absolute"
                 top="37.5%"
@@ -173,7 +164,7 @@ const EventCard: React.FC<{ event: Event }> = ({ event }) => {
                 width="0.01px"
                 height="0px"
                 viewBox={{"minX":0,"minY":0,"width":0.010000228881835937,"height":1}}
-                paths={[{"d":"M 0 0 L 0.010000228881835938 0","fillRule":"none"},{"d":"M0 -1 C-0.552285 -1 -1 -0.552285 -1 0 C-1 0.552285 -0.552285 1 0 1 L0 -1 Z M0.0100002 1 C0.562285 1 1.01 0.552285 1.01 0 C1.01 -0.552285 0.562285 -1 0.0100002 -1 L0.0100002 1 Z M0 1 L0.0100002 1 L0.0100002 -1 L0 -1 L0 1 Z","stroke":"rgba(0,0,0,1)","fillRule":"nonzero","strokeLinejoin":"round","strokeWidth":2}]}
+                paths={[{"d":"M 0 0 L 0.010000228881835938 0"},{"d":"M0 -1 C-0.552285 -1 -1 -0.552285 -1 0 C-1 0.552285 -0.552285 1 0 1 L0 -1 Z M0.0100002 1 C0.562285 1 1.01 0.552285 1.01 0 C1.01 -0.552285 0.562285 -1 0.0100002 -1 L0.0100002 1 Z M0 1 L0.0100002 1 L0.0100002 -1 L0 -1 L0 1 Z","stroke":"rgba(0,0,0,1)","fillRule":"nonzero","strokeLinejoin":"round","strokeWidth":2}]}
                 display="block"
                 position="absolute"
                 top="70.83%"
