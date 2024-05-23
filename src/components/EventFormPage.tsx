@@ -1,8 +1,6 @@
-// src/components/EventFormPage.tsx
-
 import React, { useState } from 'react';
 import { Flex, Text, TextField, SelectField, PhoneNumberField, Button } from '@aws-amplify/ui-react';
-import ImageUpload from './ImageUpload';
+
 import { generateClient } from 'aws-amplify/data';
 import type { Schema } from '../../amplify/data/resource';
 import { useNavigate } from 'react-router-dom';
@@ -242,7 +240,7 @@ const EventFormPage: React.FC = () => {
           </Button>
         </Flex>
       </Flex>
-      <ImageUpload />
+      
     </Flex>
   );
 };

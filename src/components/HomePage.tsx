@@ -1,11 +1,14 @@
 import '@aws-amplify/ui-react/styles.css';
 import { Flex, Text, Button, Image } from '@aws-amplify/ui-react';
-
+import { useNavigate } from 'react-router-dom';
 import EventSection from './EventSection';
 function HomePage() {
+  const navigate = useNavigate()
+  const handleClick = () => {
+    navigate('/form')
+  }
   return (
     <>
-   
       <Flex
         gap="0"
         direction="row"
@@ -92,7 +95,7 @@ function HomePage() {
                 Embark on a journey of mind, body, and spirit. Explore our diverse range of yoga classes tailored for all levels. Join our community to experience peace, balance, and well-being. Discover your inner strength and harmony today.
               </Text>
             </Flex>
-            <Button shrink="0" size="large" isDisabled={false} variation="primary">
+            <Button onClick={handleClick} shrink="0" size="large" isDisabled={false} variation="primary">
               Get started
             </Button>
           </Flex>
@@ -110,7 +113,8 @@ function HomePage() {
         >
           <Image
             src="../assets/image.jpg"
-            width="720px"
+            width="100%"
+            height="100%"
             grow="1"
             shrink="1"
             basis="0"
