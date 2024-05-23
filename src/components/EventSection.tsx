@@ -1,7 +1,40 @@
-import { Flex, Text, Image, Badge, Icon, Divider, Button } from '@aws-amplify/ui-react';
+import { Flex, Text } from '@aws-amplify/ui-react';
 import '@aws-amplify/ui-react/styles.css'
 import EventCard from './EventCard';
+import { Event } from '../types/Event';
+import { useState,useEffect } from 'react';
+import { generateClient } from 'aws-amplify/api';
+import type { Schema } from '../../amplify/data/resource';
+
  function EventSection() {
+  const [events, setEvents] = useState<Event[]>([]);
+  useEffect(() => {
+    const fetchEvents = async () => {
+      try {
+        const client = generateClient<Schema>();
+        const { data: eventData } = await client.models.Event.list();
+        // Ensure the data matches the Event interface
+        const formattedEventData = eventData.map((event: any) => ({
+          id: event.id,
+          title: event.title ?? null,
+          description: event.description ?? null,
+          city: event.city ?? null,
+          zipCode: event.zipCode ?? null,
+          state: event.state ?? null,
+          email: event.email ?? null,
+          phone: event.phone ?? null,
+          date: event.date ?? null,
+          time: event.time ?? null,
+          venue: event.venue ?? null,
+        }));
+        setEvents(formattedEventData);
+      } catch (error) {
+        console.error('Error fetching events:', error);
+      }
+    };
+    fetchEvents();
+  }, []);
+
   return (
   <Flex
     gap="24px"
@@ -65,7 +98,9 @@ import EventCard from './EventCard';
         Experience interactive group workouts
       </Text>
     </Flex>
-    <EventCard />
+    {events.map((event) => (
+        <EventCard key={event.id} event={event} />
+      ))}
   </Flex>
   )
 }
