@@ -9,7 +9,7 @@ const UploadImage = () => {
               '.jpg',
               'image/png',
             ]}
-            path="picture-submissions/"
+            path={({ identityId }) => `protected/${identityId}/`}
             maxFileCount={5}
             maxFileSize={1000000}
             isResumable
