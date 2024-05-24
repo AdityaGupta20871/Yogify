@@ -16,6 +16,7 @@ const schema = a.schema({
       state: a.string(),
       email: a.email(),
       phone: a.integer(),
+      image:a.string(),
     // Add any other relevant event fields
   }).authorization((allow) => [allow.publicApiKey()]),
 });

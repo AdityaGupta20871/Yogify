@@ -10,5 +10,5 @@ export interface Event {
     date?: string | null;
     time?: string | null;
     venue?: string | null;
-  }
-  
+    image?: string | null;
+}

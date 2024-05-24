@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { Flex, Text, TextField, SelectField, PhoneNumberField, Button } from '@aws-amplify/ui-react';
-
 import { generateClient } from 'aws-amplify/data';
 import type { Schema } from '../../amplify/data/resource';
 import { useNavigate } from 'react-router-dom';
+import { StorageManager } from '@aws-amplify/ui-react-storage';
+import '@aws-amplify/ui-react/styles.css';
+
 
 const client = generateClient<Schema>();
 
@@ -18,6 +20,7 @@ const EventFormPage: React.FC = () => {
   const [state, setState] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState(0);
+  const [imageUrl, setImageUrl] = useState<string | null>(null);
 
   const handleCreateEvent = async () => {
     try {
@@ -29,6 +32,7 @@ const EventFormPage: React.FC = () => {
         state,
         email,
         phone,
+        image: imageUrl, // Save the image URL
       });
 
       // Navigate to events page or clear the form after successful submission
@@ -37,6 +41,7 @@ const EventFormPage: React.FC = () => {
       console.error('Error creating event:', error);
     }
   };
+
 
   return (
     <Flex
@@ -217,6 +222,19 @@ const EventFormPage: React.FC = () => {
             value={phone}
             onChange={(e) => setPhone(Number(e.target.value))}
           />
+          
+          <StorageManager
+            acceptedFileTypes={[
+              '.jpeg',
+              '.jpg',
+              'image/png',
+            ]}
+            path="picture-submissions/"
+            maxFileCount={1}
+            maxFileSize={10000}
+            isResumable
+            onUploadSuccess={(event) => handleImageUpload(event[0].file)}
+          />
         </Flex>
         <Flex
           gap="24px"
@@ -240,7 +258,6 @@ const EventFormPage: React.FC = () => {
           </Button>
         </Flex>
       </Flex>
-      
     </Flex>
   );
 };

@@ -85,6 +85,7 @@ const NavbarHeader = () => {
         workshops
       </Text>
       </Link>
+      <Link to='/exercise'>
       <Text
         fontFamily="Inter"
         fontSize="16px"
@@ -99,6 +100,7 @@ const NavbarHeader = () => {
       >
         Exercises
       </Text>
+      </Link>
       <Text
         fontFamily="Inter"
         fontSize="16px"
