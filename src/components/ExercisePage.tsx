@@ -5,6 +5,7 @@ import {
   Image,
   Button
 } from "@aws-amplify/ui-react";
+import { StorageImage } from '@aws-amplify/ui-react-storage';
 
 const ExerciseCard: React.FC = () => {
 
@@ -62,16 +63,7 @@ const ExerciseCard: React.FC = () => {
             position="relative"
             backgroundColor="rgba(255,255,255,1)"
           >
-            <Image
-            src="../assets/balasana.jpg"
-              height="160px"
-              display="block"
-              shrink="0"
-              alignSelf="stretch"
-              position="relative"
-              objectFit="cover"
-              alt=""
-            />
+            <StorageImage alt="balasana" path="picture-submissions/balasana.jpg" />;
             <Flex
               gap="16px"
               direction="column"
