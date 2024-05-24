@@ -11,7 +11,7 @@ const UploadImage = () => {
             ]}
             path="picture-submissions/"
             maxFileCount={5}
-            maxFileSize={10000}
+            maxFileSize={1000000}
             isResumable
           />
   );
