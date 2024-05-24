@@ -20,7 +20,7 @@ const EventFormPage: React.FC = () => {
   const [state, setState] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState(0);
-  const [imageUrl, setImageUrl] = useState<string | null>(null);
+  // const [imageUrl, setImageUrl] = useState<string | null>(null);
 
   const handleCreateEvent = async () => {
     try {
@@ -32,7 +32,7 @@ const EventFormPage: React.FC = () => {
         state,
         email,
         phone,
-        image: imageUrl, // Save the image URL
+        // image: imageUrl, // Save the image URL
       });
 
       // Navigate to events page or clear the form after successful submission
@@ -233,7 +233,7 @@ const EventFormPage: React.FC = () => {
             maxFileCount={1}
             maxFileSize={10000}
             isResumable
-            onUploadSuccess={(event) => handleImageUpload(event[0].file)}
+            // onUploadSuccess={(event) => handleImageUpload(event[0].file)}
           />
         </Flex>
         <Flex

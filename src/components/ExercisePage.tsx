@@ -5,35 +5,8 @@ import {
   Image,
   Button
 } from "@aws-amplify/ui-react";
-import { uploadData } from "aws-amplify/storage";
-import "@aws-amplify/ui-react/styles.css";
 
 const ExerciseCard: React.FC = () => {
-  const monitorUpload = async () => {
-    try {
-      const result = await uploadData({
-        path: "../assets/${file.name}`,",
-        // Alternatively, path: ({identityId}) => `album/{identityId}/1.jpg`
-        data: file,
-        options: {
-          onProgress: ({ transferredBytes, totalBytes }) => {
-            if (totalBytes) {
-              console.log(
-                `Upload progress ${Math.round(
-                  (transferredBytes / totalBytes) * 100
-                )} %`
-              );
-            }
-          },
-        },
-      }).result;
-      console.log("Path from Response: ", result.path);
-    } catch (error) {
-      console.log("Error : ", error);
-    }
-  }
-
- 
 
   return (
     <Flex

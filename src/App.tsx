@@ -6,6 +6,7 @@ import EventFormPage from "./components/EventFormPage";
 import EventPage from "./components/EventPage";
 import NavbarHeader from "./components/NavbarHeader"
 import ExercisePage from './components/ExercisePage';
+import UploadImage from './components/UploadImage';
 
 const App=()=> {
   return (
@@ -16,6 +17,7 @@ const App=()=> {
     <NavbarHeader />
         <Routes>
         <Route path="/form" element={<EventFormPage />} />
+        <Route path="/uploadimage" element={<UploadImage />} />
         <Route path="/exercise" element={<ExercisePage />} />
         <Route path="/workshop" element={<EventPage />} />
         <Route path="/" element={<HomePage />} />
