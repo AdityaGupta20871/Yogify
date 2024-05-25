@@ -1,7 +1,10 @@
 import '@aws-amplify/ui-react/styles.css';
-import { Flex, Text, Button, Image } from '@aws-amplify/ui-react';
+import { Flex, Text, Button } from '@aws-amplify/ui-react';
 import { useNavigate } from 'react-router-dom';
 import EventSection from './EventSection';
+import { StorageImage } from '@aws-amplify/ui-react-storage';
+
+
 function HomePage() {
   const navigate = useNavigate()
   const handleClick = () => {
@@ -111,17 +114,7 @@ function HomePage() {
           alignSelf="stretch"
           position="relative"
         >
-          <Image
-            src="../assets/image.jpg"
-            width="100%"
-            height="100%"
-            grow="1"
-            shrink="1"
-            basis="0"
-            position="relative"
-            objectFit="cover"
-            alt=""
-          />
+          <StorageImage position="relative" width="100%" height="100%" alt='image' path="picture-submissions/image.jpg" />
         </Flex>
       </Flex>
       <EventSection />

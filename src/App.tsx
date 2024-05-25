@@ -10,7 +10,9 @@ import UploadImage from './components/UploadImage';
 
 const App=()=> {
   return (
-    <Authenticator>
+
+
+    <Authenticator socialProviders={['google']}>
     {() => (
       <>
     <Router>
@@ -26,6 +28,7 @@ const App=()=> {
       </>
           )}
           </Authenticator>
+          
   );
 }
 

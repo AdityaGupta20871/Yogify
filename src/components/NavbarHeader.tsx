@@ -1,8 +1,10 @@
 
 import '@aws-amplify/ui-react/styles.css'
-import { Flex, Icon, Text, Button, } from '@aws-amplify/ui-react';
+import { Flex,  Text, Button, } from '@aws-amplify/ui-react';
 import { Link } from 'react-router-dom';
 import { signOut } from 'aws-amplify/auth';
+import { StorageImage } from '@aws-amplify/ui-react-storage';
+
 const NavbarHeader = () => {
   const handleSignOut = async () => {
     try {
@@ -39,7 +41,7 @@ const NavbarHeader = () => {
         shrink="0"
         position="relative"
       >
-        <Icon
+        {/* <Icon
           width="34.55px"
           height="30px"
           viewBox={{"minX":0,"minY":0,"width":34.55172348022461,"height":30}}
@@ -50,7 +52,8 @@ const NavbarHeader = () => {
           bottom="0%"
           left="0%"
           right="0%"
-        />
+        /> */}
+        <StorageImage width="34px" height="30px" alt='logo' path="picture-submissions/logo.jpg" />
       </Flex>
       <Link to = '/'>
       <Text
