@@ -2,7 +2,7 @@ import React from 'react'
 import { Flex, Text, Image, Badge, Icon, Divider, Button } from '@aws-amplify/ui-react';
 import { Event } from '../types/Event';  // Import the Event type
 import { useNavigate } from 'react-router-dom';
-
+import { StorageImage } from '@aws-amplify/ui-react-storage';
 interface EventCardProps {
   event: Event;
 }
@@ -34,16 +34,14 @@ const EventCard: React.FC<EventCardProps> = ({ event }) => {
         shrink="0"
         position="relative"
       >
-        <Image
-        src='../assets/image.jpg'
-          width="30%"
+        
+        <StorageImage alt="Yoga" path='picture-submissions/yoga.jpg' width="30%"
           display="block"
           shrink="0"
           alignSelf="stretch"
           position="relative"
           objectFit="cover"
-          alt=""
-        />
+           />
         <Flex
           gap="24px"
           direction="column"

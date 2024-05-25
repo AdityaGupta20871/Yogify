@@ -1,145 +1,64 @@
 import React from "react";
-import {
-  Flex,
-  Text,
-} from "@aws-amplify/ui-react";
-import { StorageImage } from '@aws-amplify/ui-react-storage';
+import { Flex, Grid } from "@aws-amplify/ui-react";
 import ExerciseCard from "./ExerciseCard";
+
 const ExercisePage: React.FC = () => {
-  
   const exerciseData = [
     {
-      description: 'Child Pose is a restorative pose often used for relaxation and rest between more challenging poses. Its a gentle stretch thats perfect for beginners and can be done anytime you need a break during your practice.',
+      title: 'Downward-Facing Dog (Adho Mukha Svanasana)',
+      description: 'One of the most recognized yoga poses, downward-facing dog is a foundational pose. Its a great pose for stretching the entire body and is particularly beneficial for runners or those who do a lot of walking or standing.',
       imagePath: 'picture-submissions/downward-facing-dog.jpg',
     },
     {
+      title: 'Childs Pose (Balasana)',
       description: 'Child Pose is a restorative pose often used for relaxation and rest between more challenging poses. Its a gentle stretch thats perfect for beginners and can be done anytime you need a break during your practice.',
-      imagePath: 'picture-submissions/downward-facing-dog.jpg',
+      imagePath: 'picture-submissions/balasana.jpg',
+    },
+    {
+      title: 'Tree Pose (Vrikshasana)',
+      description: 'Pose is a balancing pose that strengthens the legs and core. Its a great pose for beginners to work on their balance as well as focus.',
+      imagePath: 'picture-submissions/tree-pose.jpg',
+    },
+    {
+      title: 'Seated Forward Bend (Paschimottanasana)',
+      description: 'Forward Bend is a calming pose that stretches the back and legs. Its a great pose for beginners to work on their flexibility. Additionally, it calms the mind and reduces anxiety.',
+      imagePath: 'picture-submissions/seated-forward-bend.jpg',
+    },
+    {
+      title: 'Bridge Pose (Setu Bandha Sarvangasana)',
+      description: 'Bridge Pose is a backbend pose that strengthens the back and legs and opens the chest and heart. Its a great pose for beginners to start exploring backbends in a safe and accessible way.',
+      imagePath: 'picture-submissions/bridge-pose.jpg',
+    },
+    {
+      title: 'Warrior II (Virabhadrasana II)',
+      description: 'Warrior II is a standing pose that builds strength and endurance by working on your legs, abs and arms. Its a great pose for beginners to work on their balance and body awareness.',
+      imagePath: 'picture-submissions/warrior-2.jpg',
     },
   ];
-  
+
   return (
     <Flex
-    gap="0"
-    direction="column"
-    width="100vw"
-    justifyContent="center"
-    alignItems="center"
-    position="relative"
-    padding="20px 80px 20px 80px"
-    backgroundColor="rgba(250,250,250,1)"
-  >
-    <Flex
-      gap="24px"
       direction="column"
-      justifyContent="flex-start"
-      alignItems="flex-start"
-      shrink="0"
-      alignSelf="stretch"
-      position="relative"
+      justifyContent="center"
+      alignItems="center"
+      padding="24px"
+      backgroundColor="#f8f8f8"
     >
-
-        <Flex
-          gap="16px"
-          direction="column"
-          justifyContent="center"
-          alignItems="center"
-          grow="1"
-          shrink="1"
-          basis="0"
-          alignSelf="stretch"
-          position="relative"
-          boxShadow="0px 2px 6px rgba(0.05098039284348488, 0.10196078568696976, 0.14901961386203766, 0.15000000596046448)"
-          borderRadius="8px"
-          padding="40px 40px 40px 40px"
-          backgroundColor="rgba(255,255,255,1)"
-        >
-          <Flex
-            gap="0"
-            direction="column"
-            width="320px"
-            justifyContent="center"
-            alignItems="flex-start"
-            shrink="0"
-            position="relative"
-            backgroundColor="rgba(255,255,255,1)"
-          >
-            
-            {exerciseData.map((exercise, index) => (
-            <ExerciseCard
-              key={index}
-              description={exercise.description}
-              imagePath={exercise.imagePath}
-            />
-          ))}
-          </Flex>
-          <Flex
-            gap="0"
-            direction="column"
-            width="320px"
-            justifyContent="center"
-            alignItems="flex-start"
-            shrink="0"
-            position="relative"
-            backgroundColor="rgba(255,255,255,1)"
-          >
-            <StorageImage alt="balasana" path="picture-submissions/tree-pose.jpg" />;
-            <Flex
-              gap="16px"
-              direction="column"
-              justifyContent="flex-start"
-              alignItems="flex-start"
-              shrink="0"
-              alignSelf="stretch"
-              position="relative"
-              padding="16px 16px 16px 16px"
-            >
-              <Flex
-                gap="8px"
-                direction="column"
-                justifyContent="flex-start"
-                alignItems="flex-start"
-                shrink="0"
-                alignSelf="stretch"
-                position="relative"
-              >
-                <Text
-                  fontFamily="Inter"
-                  fontSize="16px"
-                  fontWeight="700"
-                  color="rgba(13,26,38,1)"
-                  lineHeight="20px"
-                  textAlign="left"
-                  display="block"
-                  shrink="0"
-                  alignSelf="stretch"
-                  position="relative"
-                  whiteSpace="pre-wrap"
-                >
-                  The Role of Yoga in Cardiac Health
-                </Text>
-                <Text
-                  fontFamily="Inter"
-                  fontSize="16px"
-                  fontWeight="400"
-                  color="rgba(13,26,38,1)"
-                  lineHeight="24px"
-                  textAlign="left"
-                  display="block"
-                  letterSpacing="0.01px"
-                  shrink="0"
-                  alignSelf="stretch"
-                  position="relative"
-                  whiteSpace="pre-wrap"
-                >
-                  Yoga and relaxation have been successfully used to check high blood pressure and coronary artery disease. Yogic therapy not only reduces high blood pressure, but also reduces blood glucose, and body weight.
-                </Text>
-              </Flex>
-            </Flex>
-          </Flex>
-        </Flex>
-        
-      </Flex>
+      <Grid
+        templateColumns={{ base: '1fr', medium: '1fr 1fr' }}
+        gap="24px"
+        width="100%"
+        maxWidth="800px"
+      >
+        {exerciseData.map((exercise, index) => (
+          <ExerciseCard
+            key={index}
+            title={exercise.title}
+            description={exercise.description}
+            imagePath={exercise.imagePath}
+          />
+        ))}
+      </Grid>
     </Flex>
   );
 };
