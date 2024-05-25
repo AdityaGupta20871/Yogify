@@ -1,5 +1,5 @@
 import React from 'react'
-import { Flex, Text, Image, Badge, Icon, Divider, Button } from '@aws-amplify/ui-react';
+import { Flex, Text, Badge, Icon, Divider, Button } from '@aws-amplify/ui-react';
 import { Event } from '../types/Event';  // Import the Event type
 import { useNavigate } from 'react-router-dom';
 import { StorageImage } from '@aws-amplify/ui-react-storage';
