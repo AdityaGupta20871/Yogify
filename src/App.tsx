@@ -15,7 +15,7 @@ const App=()=> {
 
 
     <Authenticator socialProviders={['google']} variation='modal'>
-    {({user}) => (
+    {() => (
       <>
     <Router>
     <NavbarHeader />

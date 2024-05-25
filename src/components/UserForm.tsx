@@ -1,5 +1,5 @@
-import React from 'react'
-import { Flex, Text, TextField, Button,PhoneNumberField } from '@aws-amplify/ui-react';
+
+import { Flex, TextField, Button,PhoneNumberField } from '@aws-amplify/ui-react';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { generateClient } from 'aws-amplify/api';

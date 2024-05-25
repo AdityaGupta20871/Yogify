@@ -3,7 +3,7 @@ import { Flex, Text, TextField, SelectField, PhoneNumberField, Button } from '@a
 import { generateClient } from 'aws-amplify/data';
 import type { Schema } from '../../amplify/data/resource';
 import { useNavigate } from 'react-router-dom';
-import { StorageManager } from '@aws-amplify/ui-react-storage';
+
 import '@aws-amplify/ui-react/styles.css';
 
 

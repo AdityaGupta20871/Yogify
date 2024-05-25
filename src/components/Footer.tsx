@@ -1,8 +1,7 @@
 import React from 'react';
-import { Flex, Text, Link, Divider } from '@aws-amplify/ui-react';
+import { Flex, Text, Divider } from '@aws-amplify/ui-react';
 
 const ContextualFooter: React.FC = () => {
-  const isLoggedIn = true; // Replace with actual login logic
 
   return (
     <Flex
