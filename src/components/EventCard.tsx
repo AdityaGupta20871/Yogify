@@ -1,6 +1,7 @@
 import React from 'react'
 import { Flex, Text, Image, Badge, Icon, Divider, Button } from '@aws-amplify/ui-react';
 import { Event } from '../types/Event';  // Import the Event type
+import { useNavigate } from 'react-router-dom';
 
 interface EventCardProps {
   event: Event;
@@ -8,6 +9,10 @@ interface EventCardProps {
 
 
 const EventCard: React.FC<EventCardProps> = ({ event }) => {
+  const navigate =  useNavigate()
+  const handleClick = () =>{
+    navigate('/userform');
+  }
   console.log(event)
   return (
     <>
@@ -81,27 +86,27 @@ const EventCard: React.FC<EventCardProps> = ({ event }) => {
               size="small"
               variation="info"
             >
-              June 15, 2024
+              {event.date}
             </Badge>
             <Badge
               shrink="0"
               size="small"
               variation="info"
             >
-              Delhi
+              {event.city}
             </Badge>
             <Badge
               shrink="0"
               variation="info"
               size="small"
             >
-              5:00 PM
+              {event.time}
             </Badge>
             <Badge
               size="small"
               variation="info"
             >
-              Cult Fitness
+              {event.venue}
             </Badge>
           </Flex>
           <Text
@@ -118,8 +123,23 @@ const EventCard: React.FC<EventCardProps> = ({ event }) => {
             position="relative"
             whiteSpace="pre-wrap"
           >
-            Join us for a rejuvenating yoga retreat surrounded by the beauty of nature. This four-day retreat offers daily yoga sessions, meditation, nature hikes, healthy meals, and relaxation by the lake. Disconnect from the stresses of daily life and reconnect with yourself in this tranquil setting
+            {event.description}
           </Text>
+          <Text
+                fontFamily="Inter"
+                fontSize="16px"
+                fontWeight="400"
+                color="rgba(48,64,80,1)"
+                lineHeight="24px"
+                textAlign="left"
+                display="block"
+                letterSpacing="0.01px"
+                shrink="0"
+                position="relative"
+                whiteSpace="pre-wrap"
+              >
+                For more information contact at {event.phone} or {event.email}
+              </Text>
           <Flex
             gap="16px"
             direction="row"
@@ -339,7 +359,7 @@ const EventCard: React.FC<EventCardProps> = ({ event }) => {
               </Text>
             </Flex>
           </Flex>
-          <Button
+          <Button onClick={handleClick}
           >
             Register
           </Button>

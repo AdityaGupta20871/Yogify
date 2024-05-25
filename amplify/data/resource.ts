@@ -12,13 +12,21 @@ const schema = a.schema({
     title: a.string(),
     description: a.string(),
       city: a.string(),
-      zipCode: a.integer(),
       state: a.string(),
       email: a.email(),
       phone: a.integer(),
-      image:a.string(),
+      time: a.string(),
+      date: a.string(),
+      venue:a.string(),
     // Add any other relevant event fields
   }).authorization((allow) => [allow.publicApiKey()]),
+  User: a.model({
+    name: a.string(),
+    eventtitle:a.string(),
+    email: a.email(),
+    phone:a.integer(),
+  }).authorization((allow) => [allow.publicApiKey()]),
+
 });
 
 

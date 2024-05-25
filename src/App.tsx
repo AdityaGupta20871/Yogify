@@ -7,13 +7,15 @@ import EventPage from "./components/EventPage";
 import NavbarHeader from "./components/NavbarHeader"
 import ExercisePage from './components/ExercisePage';
 import UploadImage from './components/UploadImage';
+import UserForm from './components/UserForm';
+import UserList from './components/UserList';
 
 const App=()=> {
   return (
 
 
-    <Authenticator socialProviders={['google']}>
-    {() => (
+    <Authenticator socialProviders={['google']} variation='modal'>
+    {({user}) => (
       <>
     <Router>
     <NavbarHeader />
@@ -23,6 +25,8 @@ const App=()=> {
         <Route path="/exercise" element={<ExercisePage />} />
         <Route path="/workshop" element={<EventPage />} />
         <Route path="/" element={<HomePage />} />
+        <Route path="/userform" element={<UserForm />} />
+        <Route path="/userlist" element={<UserList />} />
       </Routes>
     </Router>
       </>

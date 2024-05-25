@@ -36,8 +36,8 @@ const NavbarHeader = () => {
       position="relative"
     >
       <Flex
-        width="34.55px"
-        height="30px"
+        width="50px"
+        height="50px"
         shrink="0"
         position="relative"
       >
@@ -53,7 +53,7 @@ const NavbarHeader = () => {
           left="0%"
           right="0%"
         /> */}
-        <StorageImage width="34px" height="30px" alt='logo' path="picture-submissions/logo.jpg" />
+        <StorageImage width="50px" height="50px" alt='logo' path="picture-submissions/logo.jpg" />
       </Flex>
       <Link to = '/'>
       <Text

@@ -23,12 +23,11 @@ const EventPage = () => {
           title: event.title ?? null,
           description: event.description ?? null,
           city: event.city ?? null,
-          zipCode: event.zipCode ?? null,
           state: event.state ?? null,
           email: event.email ?? null,
           phone: event.phone ?? null,
-          date: event.date ?? null,
           time: event.time ?? null,
+          date: event.date ?? null,
           venue: event.venue ?? null,
         }));
         setEvents(formattedEventData);

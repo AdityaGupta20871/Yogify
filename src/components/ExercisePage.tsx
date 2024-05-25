@@ -9,7 +9,11 @@ const ExercisePage: React.FC = () => {
   
   const exerciseData = [
     {
-      description: 'The Role of Yoga in Cardiac Health',
+      description: 'Child Pose is a restorative pose often used for relaxation and rest between more challenging poses. Its a gentle stretch thats perfect for beginners and can be done anytime you need a break during your practice.',
+      imagePath: 'picture-submissions/downward-facing-dog.jpg',
+    },
+    {
+      description: 'Child Pose is a restorative pose often used for relaxation and rest between more challenging poses. Its a gentle stretch thats perfect for beginners and can be done anytime you need a break during your practice.',
       imagePath: 'picture-submissions/downward-facing-dog.jpg',
     },
   ];

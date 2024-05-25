@@ -16,10 +16,13 @@ const EventFormPage: React.FC = () => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [city, setCity] = useState('');
-  const [zipCode, setZipCode] = useState(0);
+  // const [zipCode, setZipCode] = useState(0);
   const [state, setState] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState(0);
+  const [time, setTime] = useState('');
+  const [date, setDate] = useState('');
+  const [venue, setVenue] = useState('');
   // const [imageUrl, setImageUrl] = useState<string | null>(null);
 
   const handleCreateEvent = async () => {
@@ -28,10 +31,12 @@ const EventFormPage: React.FC = () => {
         title,
         description,
         city,
-        zipCode,
         state,
         email,
         phone,
+        time,
+        date,
+        venue,
         // image: imageUrl, // Save the image URL
       });
 
@@ -157,7 +162,7 @@ const EventFormPage: React.FC = () => {
               onChange={(e) => setCity(e.target.value)}
             />
             <TextField
-              label="Zip code"
+              label="Venue"
               grow="1"
               shrink="1"
               basis="0"
@@ -166,8 +171,34 @@ const EventFormPage: React.FC = () => {
               isDisabled={false}
               labelHidden={false}
               variation="quiet"
-              value={zipCode}
-              onChange={(e) => setZipCode(Number(e.target.value))}
+              value={venue}
+              onChange={(e) => setVenue(e.target.value)}
+            />
+            <TextField
+              label="date"
+              grow="1"
+              shrink="1"
+              basis="0"
+              placeholder=""
+              size="large"
+              isDisabled={false}
+              labelHidden={false}
+              variation="quiet"
+              value={date}
+              onChange={(e) => setDate(e.target.value)}
+            />
+            <TextField
+              label="time"
+              grow="1"
+              shrink="1"
+              basis="0"
+              placeholder=""
+              size="large"
+              isDisabled={false}
+              labelHidden={false}
+              variation="quiet"
+              value={time}
+              onChange={(e) => setTime(e.target.value)}
             />
             <SelectField
               width="100px"
@@ -223,7 +254,7 @@ const EventFormPage: React.FC = () => {
             onChange={(e) => setPhone(Number(e.target.value))}
           />
           
-          <StorageManager
+          {/* <StorageManager
             acceptedFileTypes={[
               '.jpeg',
               '.jpg',
@@ -233,8 +264,8 @@ const EventFormPage: React.FC = () => {
             maxFileCount={1}
             maxFileSize={10000}
             isResumable
-            // onUploadSuccess={(event) => handleImageUpload(event[0].file)}
-          />
+            onUploadSuccess={(event) => handleImageUpload(event[0].file)}
+          /> */}
         </Flex>
         <Flex
           gap="24px"
