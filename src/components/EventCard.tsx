@@ -85,27 +85,27 @@ const EventCard: React.FC<EventCardProps> = ({ event }) => {
             <Badge
               shrink="0"
               size="small"
-              variation="info"
+             
             >
               {event.date}
             </Badge>
             <Badge
               shrink="0"
               size="small"
-              variation="info"
+             
             >
               {event.city}
             </Badge>
             <Badge
               shrink="0"
-              variation="info"
+              
               size="small"
             >
               {event.time}
             </Badge>
             <Badge
               size="small"
-              variation="info"
+              
             >
               {event.venue}
             </Badge>
@@ -374,7 +374,7 @@ const EventCard: React.FC<EventCardProps> = ({ event }) => {
           </Button>
           <Button onClick={handleusers}
           >
-            Members
+            See Members
           </Button>
           </Flex>
         </Flex>

@@ -85,7 +85,7 @@ const NavbarHeader = () => {
         position="relative"
         whiteSpace="pre-wrap"
       >
-        workshops
+        Workshops
       </Text>
       </Link>
       <Link to='/exercise'>
@@ -116,7 +116,7 @@ const NavbarHeader = () => {
         position="relative"
         whiteSpace="pre-wrap"
       >
-        Blog
+        Locate Places
       </Text>
     </Flex>
     <Flex
@@ -131,7 +131,6 @@ const NavbarHeader = () => {
         shrink="0"
         size="small"
         isDisabled={false}
-        variation="primary"
         onClick={handleSignOut}
       >
         SignOut

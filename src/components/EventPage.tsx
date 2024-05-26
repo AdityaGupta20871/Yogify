@@ -92,6 +92,7 @@ const EventPage = () => {
       alignItems="flex-start"
       position="relative"
       padding="48px 48px 48px 48px"
+      backgroundColor="rgba(250,250,250,1)"
     >
       {events.map((event) => (
         <EventCard key={event.id} event={event} />

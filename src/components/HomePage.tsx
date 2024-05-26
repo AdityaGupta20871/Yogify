@@ -98,7 +98,7 @@ function HomePage() {
                 Embark on a journey of mind, body, and spirit. Explore our diverse range of yoga classes tailored for all levels. Join our community to experience peace, balance, and well-being. Discover your inner strength and harmony today.
               </Text>
             </Flex>
-            <Button onClick={handleClick} shrink="0" size="large" isDisabled={false} variation="primary">
+            <Button onClick={handleClick} shrink="0" size="large" isDisabled={false} >
               Get started
             </Button>
           </Flex>
