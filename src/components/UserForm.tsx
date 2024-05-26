@@ -142,7 +142,6 @@ const UserForm = () => {
             alignSelf="stretch"
             size="large"
             isDisabled={false}
-            variation="primary"
             onClick={handleCreateUser}
           >
             Register

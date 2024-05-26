@@ -282,7 +282,7 @@ const EventFormPage: React.FC = () => {
             alignSelf="stretch"
             size="large"
             isDisabled={false}
-            variation="primary"
+            
             onClick={handleCreateEvent}
           >
             Create Event
