@@ -1,39 +1,42 @@
 import React from 'react';
+import DataTable from 'react-data-table-component';
 import { User } from '../types/Users';
-import { Table, TableHead, TableRow, TableCell, TableBody,Flex } from '@aws-amplify/ui-react';
+
 interface UserTableProps {
-  user: User;
+  users: User[];
 }
 
-const UserTable: React.FC<UserTableProps> = ({ user }) => {
+const columns = [
+  {
+    name: 'Name',
+    selector: (row: User) => row.name ?? '',
+    sortable: true,
+  },
+  {
+    name: 'Email',
+    selector: (row: User) => row.email ?? '',
+    sortable: true,
+  },
+  {
+    name: 'Phone',
+    selector: (row: User) => row.phone ?? '',
+    sortable: true,
+  },
+  {
+    name: 'Event Title',
+    selector: (row: User) => row.eventtitle ?? '',
+    sortable: true,
+  },
+];
+
+const UserTable: React.FC<UserTableProps> = ({ users }) => {
   return (
-    <Flex
-    width="100vw"
-    height="100vh"
-      backgroundColor="white"
-      borderRadius="8px"
-      boxShadow="0 2px 4px rgba(0, 0, 0, 0.1)"
-      padding="16px"
-    >
-    <Table highlightOnHover={true}>
-    <TableHead>
-      <TableRow>
-        <TableCell as="th">Name</TableCell>
-        <TableCell as="th">Email</TableCell>
-        <TableCell as="th">Phone</TableCell>
-        <TableCell as="th">Event Title</TableCell>
-      </TableRow>
-    </TableHead>
-    <TableBody>
-      <TableRow>
-          <TableCell>{user.name}</TableCell>
-          <TableCell>{user.email}</TableCell>
-          <TableCell>{user.phone}</TableCell>
-          <TableCell>{user.eventtitle}</TableCell>
-        </TableRow>
-    </TableBody>
-  </Table>
-  </Flex>
+    <DataTable
+      columns={columns}
+      data={users}
+      pagination
+      highlightOnHover
+    />
   );
 };
 

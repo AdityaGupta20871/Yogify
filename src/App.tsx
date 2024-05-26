@@ -10,6 +10,7 @@ import UploadImage from './components/UploadImage';
 import UserForm from './components/UserForm';
 import UserList from './components/UserList';
 import Footer from './components/Footer';
+
 const App=()=> {
   return (
 
@@ -27,6 +28,7 @@ const App=()=> {
         <Route path="/" element={<HomePage />} />
         <Route path="/userform" element={<UserForm />} />
         <Route path="/userlist" element={<UserList />} />
+  
       </Routes>
       <Footer />
     </Router>

@@ -41,9 +41,7 @@ const UserList = () => {
       position="relative"
       padding="48px 48px 48px 48px"
     >
-      {users.map((user) => (
-        <UserTable key={user.id} user={user} />
-      ))}
+      <UserTable users={users} />
     </Flex>
   );
 };

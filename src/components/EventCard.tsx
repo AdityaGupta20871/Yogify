@@ -13,6 +13,9 @@ const EventCard: React.FC<EventCardProps> = ({ event }) => {
   const handleClick = () =>{
     navigate('/userform');
   }
+  const handleusers = () =>{
+    navigate('/userlist');
+  }
   console.log(event)
   return (
     <>
@@ -357,10 +360,23 @@ const EventCard: React.FC<EventCardProps> = ({ event }) => {
               </Text>
             </Flex>
           </Flex>
+          <Flex
+              gap="16px"
+              direction="row"
+              justifyContent="flex-start"
+              alignItems="flex-start"
+              shrink="0"
+              position="relative"
+            >
           <Button onClick={handleClick}
           >
             Register
           </Button>
+          <Button onClick={handleusers}
+          >
+            Members
+          </Button>
+          </Flex>
         </Flex>
       </Flex>
     </Flex>

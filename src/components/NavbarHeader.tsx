@@ -136,14 +136,6 @@ const NavbarHeader = () => {
       >
         SignOut
       </Button>
-      <Button
-        shrink="0"
-        size="small"
-        isDisabled={false}
-        variation='link'
-      >
-        Sign up
-      </Button>
     </Flex>
   </Flex>
   </>
